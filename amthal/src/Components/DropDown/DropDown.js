@@ -6,7 +6,7 @@
 import user from "./img/user.png";
 import edit from "./img/edit.png";
 import React, { useState, useEffect, useRef } from "react";
-import { Link } from "react-router-dom";
+import { NavLink } from "react-router-dom";
 import "../../App.css";
 function DropDown() {
   const [open, setOpen] = useState(false);
@@ -17,7 +17,6 @@ function DropDown() {
     let handler = (e) => {
       if (!menuRef.current.contains(e.target)) {
         setOpen(false);
-        console.log(menuRef.current);
       }
     };
 
@@ -41,10 +40,12 @@ function DropDown() {
 
       <div className={`dropdown-menu ${open ? "active" : "inactive"}`}>
         <ul>
-          <DropdownItem img={user} text={"مُدَوَّنَتِي"} />
-          <Link to={"/add"}>
+          <NavLink to={"/"}>
+            <DropdownItem img={user} text={"مُدَوَّنَتِي"}></DropdownItem>
+          </NavLink>
+          <NavLink to={"/add"}>
             <DropdownItem img={edit} text={"أَضِفْ أَمْثَال"} />
-          </Link>
+          </NavLink>
           {/* <DropdownItem img={inbox} text={"Inbox"} />
           <DropdownItem img={settings} text={"Settings"} />
           <DropdownItem img={help} text={"Helps"} />
@@ -59,7 +60,7 @@ function DropdownItem(props) {
   return (
     <li className="dropdownItem">
       <img src={props.img} alt=""></img>
-      <a> {props.text} </a>
+      <div> {props.text} </div>
     </li>
   );
 }
