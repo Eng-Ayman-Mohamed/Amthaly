@@ -4,8 +4,6 @@ import axios from "axios";
 import "./Add.css";
 
 function Add() {
-  const [newMathal, setNewMathal] = useState("hello");
-  const [id, setId] = useState(1);
   const [Mathaly, setMathaly] = useState({
     id: 1,
     tittle: "",
@@ -15,7 +13,7 @@ function Add() {
     if (event.target.name === "id") {
       setMathaly({
         ...Mathaly,
-        id: event.target.value,
+        id: parseInt(event.target.value),
       });
     } else if (event.target.name === "mathal") {
       setMathaly({
