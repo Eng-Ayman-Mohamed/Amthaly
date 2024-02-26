@@ -6,19 +6,18 @@ class Home extends Component {
     super();
     this.state = { mathal: {}, tenMathal: [] };
   }
-
   componentDidMount() {
-    fetch("http://localhost:8080/amthal/one")
+    fetch("https://frantic-tan-tiara.cyclic.app/amthal/one")
       .then((Response) => Response.json())
       .then((json) => this.setState({ mathal: json }));
   }
   fetchMathal = () => {
-    fetch("http://localhost:8080/amthal/one")
+    fetch("https://frantic-tan-tiara.cyclic.app/amthal/one")
       .then((Response) => Response.json())
       .then((json) => this.setState({ mathal: json }));
   };
   fetchAmthal = () => {
-    fetch("http://localhost:8080/amthal/ten")
+    fetch("https://frantic-tan-tiara.cyclic.app/amthal/ten")
       .then((Response) => Response.json())
       .then((json) => this.setState({ tenMathal: json }));
   };
